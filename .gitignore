@@ -1,1 +1,7 @@
 node_modules
+
+# Local secrets — never commit these (purged from history 2026-09-04)
+.env
+ssl/*.pem
+ssl/*.key
+storage/secrets.json
