@@ -140,6 +140,11 @@ class DevForgeServer {
   private setupRoutes(): void {
     // API routes
     this.app.use('/api/auth', authRoutes);
+    // Lazy import to avoid circular deps in tests
+    const { projectRoutes } = require('./routes/projectRoutes');
+    const { aiRoutes } = require('./routes/aiRoutes');
+    this.app.use('/api/projects', projectRoutes);
+    this.app.use('/api/ai', aiRoutes);
     
     // TODO: Add other routes as they are implemented
     // this.app.use('/api/users', authenticate, userRoutes);
